@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internet hotspot - Log in</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- two other colors
+
+<body class="lite">
+<body class="dark">
+
+-->
+
+    <!-- <div class="navbar">
+        <a href="#VOUCHER">VOUCHER</a>
+    </div> -->
+
+    <section id="LOGIN">
+        $(if chap-id)
+        <form name="sendin" action="$(link-login-only)" method="post" style="display:none">
+            <input type="hidden" name="username" />
+            <input type="hidden" name="password" />
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+        </form>
+    
+        <script src="/md5.js"></script>
+        <script>
+            function doLogin() {
+                document.sendin.username.value = document.login.username.value;
+                document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+                document.sendin.submit();
+                return false;
+            }
+
+        </script>
+        $(endif)
+        <div class="ie-fixMinHeight">
+            <div class="main">
+                <div class="wrap animated fadeIn">
+                    <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()"
+                        $(endif)>
+                        <input type="hidden" name="dst" value="$(link-orig)" />
+                        <input type="hidden" name="popup" value="true" />
+                        <img class="logo" data-name="Layer 1" src="img/logo.svg" alt="Logo" viewBox="0 0 174 42">
+    
+    
+                        <p class="info $(if error)alert$(endif)">
+                            $(if error == "")Loginki pake voucher ta kalau mauki dapat akses internet. $(if trial == 'yes')<br />Atau mauki coba-coba dulu? <a
+                                href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click
+                                disiniki</a>.$(endif)
+                            Scroll kebawahki lihat pilihan <a href="#VOUCHER">voucher</a>.
+                            $(endif)
+    
+                            $(if error)$(error)$(endif)
+                        </p>
+                        <label>
+                            <img class="ico" src="img/user.svg" alt="#" />
+                            <input name="username" type="text" value="$(username)" placeholder="Username" />
+                        </label>
+    
+                        <label>
+                            <img class="ico" src="img/password.svg" alt="#" />
+                            <input name="password" type="password" placeholder="Password" />
+                        </label>
+    
+                        <input type="submit" value="Connect" />
+    
+                    </form>
+                    <p class="info bt">Powered by <a href="http://arykurnia.my.id" target="_blank"
+                            rel="noopener noreferrer">Ary Kurnia</a></p>
+    
+                </div>
+            </div>
+        </div>
+    
+        <!-- Scroll indicator: klik untuk langsung ke bagian voucher -->
+         <div>
+            <a href="#VOUCHER" class="scroll-indicator" aria-label="Scroll to voucher">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z" />
+                </svg>
+            </a>   
+         </div>      
+    </section>
+
+    <section id="VOUCHER">
+        <h2>Paket Santuy</h2>
+        
+        <table class="voucher-table">
+            <thead>
+                <tr>
+                    <th>Paket</th>
+                    <th>Kecepatan</th>
+                    <th>Kuota</th>
+                    <th>Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>24 Jam</td>
+                    <td>3 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>Rp 5.000</td>
+                </tr>
+                <tr>
+                    <td>3 Hari</td>
+                    <td>3 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>Rp 10.000</td>
+                </tr>
+                <tr>
+                    <td>7 Hari</td>
+                    <td>3 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>Rp 20.000</td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>3 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>Rp 50.000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Paket Ngebut</h2>
+        
+        <table class="voucher-table">
+            <thead>
+                <tr>
+                    <th>Paket</th>
+                    <th>Kecepatan</th>
+                    <th>Kuota</th>
+                    <th>Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>24 Jam</td>
+                    <td>6 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>Rp 8.000</td>
+                </tr>
+                <tr>
+                    <td>3 Hari</td>
+                    <td>6 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>Rp 15.000</td>
+                </tr>
+                <tr>
+                    <td>7 Hari</td>
+                    <td>6 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>Rp 35.000</td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>6 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>Rp 90.000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Instalasi Langganan WIFI</h2>
+        <p class="info">Biaya instalasi Rp 150.000</p>
+        <table class="voucher-table">
+            <thead>
+                <tr>
+                    <th>Kecepatan</th>
+                    <th>Kuota</th>
+                    <th>Koneksi Maksimal</th>
+                    <th>Masa Aktif</th>
+                    <th>Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>4 Perangkat</td>
+                    <td>1 Bulan</td>
+                    <td>Rp 100.000</td>
+                </tr>
+                <tr>
+                    <td>5 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>5 Perangkat</td>
+                    <td>1 Bulan</td>
+                    <td>Rp 125.000</td>
+                </tr>
+                <tr>
+                    <td>6 Mbps</td>
+                    <td>Tidak terbatas</td>
+                    <td>6 Perangkat</td>
+                    <td>1 Bulan</td>
+                    <td>Rp 150.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <div class="info">
+            <p >
+                <a href="https://wa.me/6285000000000" class="btn-buy" target="_blank">Beli via WA</a>
+            </p>
+            <p>
+                <a href="https://wa.me/6281123456789" class="btn-buy" target="_blank">081123456789 Adam</a>
+            </p>
+            <p>
+                <a href="https://wa.me/6285123456789" class="btn-buy" target="_blank">085123456789 Lorem</a>
+            </p>
+        </div>
+
+        <p class="info pay">DANA 085000000000 AN HASFIATI</p>
+        <p class="info pay">BRI 123456789098234 AN HASFIATI</p>
+        <p class="info bt">Powered by <a href="http://arykurnia.my.id" target="_blank" rel="noopener noreferrer">Ary Kurnia</a></p>
+    </footer>
+</body>
+
+</html>
